@@ -41,7 +41,7 @@ include_directories(
     "${CMAKE_CURRENT_BINARY_DIR}"
     "${CMAKE_CURRENT_SOURCE_DIR}")
 
-find_package(Qt5 COMPONENTS Core)
+find_package(Qt5 COMPONENTS Core Gui Network)
 if(Qt5Core_FOUND)
     include_directories(
          ${Qt5Core_INCLUDE_DIRS})
@@ -51,9 +51,13 @@ if(INCLUDE_PILE_SOURCES_DIRECTLY)
     include(pile_support)
     pileInclude (SimpleSmtp)
     simplesmtpInit(PILE)
+    pileInclude (UserMsg)
+    usermsgInit(PILE)
 else()
     set (SIMPLESMTP_BUILD_MODE SHARED)
     add_subdirectory(simplesmtp)
+    set (USERMSG_BUILD_MODE SHARED)
+    add_subdirectory(usermsg)
 endif()
 
 add_subdirectory(tests)

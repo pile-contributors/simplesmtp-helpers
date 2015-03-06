@@ -1,0 +1,6 @@
+[submodule "simplesmtp"]
+	path = simplesmtp
+	url = git@github.com:pile-contributors/simplesmtp.git
+[submodule "usermsg"]
+	path = usermsg
+	url = git@github.com:pile-contributors/usermsg.git
